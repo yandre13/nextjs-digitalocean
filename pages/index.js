@@ -17,18 +17,24 @@ import { usePagination } from 'src/hooks/useSome'
 import { useNearScreen } from 'src/hooks/useLazy'
 import Post from 'src/components/Post'
 import ListOfPosts from 'src/components/ListPosts'
+import useSWR, { useSWRInfinite } from 'swr'
 const BASE_URL = 'http://back.test/graphql'
 
 const limit = 4
 const getLastCursor = (arr=[])=>arr.filter((e, i)=>i === arr.length -1 && e)[0]?.cursor
 
+
+const getData = async(query)=>{
+    const newQuery = JSON.stringify(query)
+    return await fetchPro(newQuery)
+    }
 export default function Home({ allPosts = [], allSlides = [] }) {
 
     const lastCursor = getLastCursor(allPosts?.posts?.edges)
     const [state, setState] = useState({ended: false, cursor: lastCursor})
     const {cursor, ended} = state
     
-    const {fromRef, nearScreen, initialized} = useNearScreen(false, {margin: '100px', over: ended})
+    // const {fromRef, nearScreen, initialized} = useNearScreen(false, {margin: '100px', over: ended})
     
     const query = {
         query: `
@@ -60,9 +66,17 @@ export default function Home({ allPosts = [], allSlides = [] }) {
         variables: {num: limit, after: cursor}
     }
     // const data = {}
-    const {data, error, status} = usePagination(query, initialized)
-    
-    
+    // const {data, error, status} = usePagination(query, initialized)
+    const getKey = query => (pageIndex, previousPageData)=>{
+        console.log(pageIndex, previousPageData)
+        if(previousPageData && !previousPageData.data) return null
+
+        //
+        return query
+
+    }
+    // const data = {}
+    const {data} = useSWR(query, getData, {initialData: {}})
     
     
     const params = {
@@ -81,28 +95,29 @@ export default function Home({ allPosts = [], allSlides = [] }) {
         }
       }
 
-      
 
       
-    console.log('loading', status)
+console.log(data)
+      
     
-    useEffect(()=>{
-        if(status !== 'ended'){
-            return
-        }
-        setState(prev=>({...prev, ended: true}))
-    }, [status])
-    useEffect(()=>{
-        if(!nearScreen){
-            return
-        }
-        const timing = setTimeout(()=>{
-            if(initialized && status === 'resolved'){
-                setState(prev=>({...prev, cursor: getLastCursor(data?.posts?.edges)}))
-            }
-        }, 400)
-        return ()=> clearTimeout(timing)
-    }, [nearScreen])
+    
+    // useEffect(()=>{
+    //     if(status !== 'ended'){
+    //         return
+    //     }
+    //     setState(prev=>({...prev, ended: true}))
+    // }, [status])
+    // useEffect(()=>{
+    //     if(!nearScreen){
+    //         return
+    //     }
+    //     const timing = setTimeout(()=>{
+    //         if(initialized && status === 'resolved'){
+    //             setState(prev=>({...prev, cursor: getLastCursor(data?.posts?.edges)}))
+    //         }
+    //     }, 400)
+    //     return ()=> clearTimeout(timing)
+    // }, [nearScreen])
 
 	return (
 		<div className="container">
@@ -156,12 +171,12 @@ export default function Home({ allPosts = [], allSlides = [] }) {
                     </div>
                     {/*Client*/}
                     <ListOfPosts data={data} />
-                    
+{/*                     
                     <button ref={fromRef} onClick={()=>{
                         setCursor(getLastCursor(data?.posts?.edges))
                     }}>
                         CLOKC
-                    </button>
+                    </button> */}
 				</section>
             
 			</main>
