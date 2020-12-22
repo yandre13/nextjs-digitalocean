@@ -20,3 +20,6 @@ a:focus,
 a:active {
 	text-decoration: underline;
 }
+*:focus {
+    outline: none;
+  }

@@ -7,6 +7,7 @@ import { getAllPostsWithSlug, getPost } from 'lib/api'
 import styles from 'styles/Home.module.css'
 import blogStyles from 'styles/Blog.module.css'
 
+
 export default function Post({ postData = {} }) {
 	const router = useRouter()
 
@@ -30,6 +31,7 @@ export default function Post({ postData = {} }) {
 				{router.isFallback ? (
 					<h2>Loading...</h2>
 				) : (
+                   
 					<article className={blogStyles.article}>
 						<div className={blogStyles.postmeta}>
 							<h1 className={styles.title}>{postData.title}</h1>
@@ -41,6 +43,7 @@ export default function Post({ postData = {} }) {
 							dangerouslySetInnerHTML={{ __html: postData.content }}
 						/>
 					</article>
+                
 				)}
 				<p>
 					<Link href="/">
