@@ -24,11 +24,11 @@ export async function fetchAPI(query, { variables } = {}) {
 
 // Notice the 'export' keyword here. We'll be calling this function
 // directly in our blog/index.js page, so it needs to be exported
-export async function getAllPosts(preview) {
+export async function getAllPosts(first = 4) {
 	const data = await fetchAPI(
 		`
    query AllPosts {
-    posts(first: 4, where: { orderby: { field: DATE, order: ASC}}) {
+    posts(first: ${first}, where: { orderby: { field: DATE, order: ASC}}) {
      edges {
       cursor
       node {
@@ -132,7 +132,7 @@ export async function getAllSlides() {
 
 
 
-export const query2Posts = `
+export const queryPostsClient = `
 query AllPosts($num: Int, $after: String) {
     posts(first: $num, after: $after, where: { orderby: { field: DATE, order: ASC}}) {
      edges {
@@ -158,20 +158,3 @@ query AllPosts($num: Int, $after: String) {
     }
    }
 `
-const headers = { 'Content-Type': 'application/json' }
-
-export const fetchPro = async(query) => {
-
-    const options = {
-      headers : headers,
-      method: 'POST',
-      body: query
-    };
-    const res = await fetch('http://back.test/graphql', options)
-    console.log('r', res)
-    const resJson = await res.json();
-    if(resJson.errors) {
-        throw(JSON.stringify(resJson.errors));
-    }
-    return resJson.data;
-  }

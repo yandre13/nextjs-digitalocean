@@ -1,7 +1,7 @@
 import React from 'react'
 
 //
-import Post from 'src/components/Post'
+import Post from 'components/Post'
 
 const ListOfPosts = ({data}) => {
     return (
