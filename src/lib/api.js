@@ -1,16 +1,15 @@
-
 const API_URL = process.env.WP_API_URL
 
-export async function fetchAPI(query, { variables } = {}) {
+export async function fetchAPI(query, {variables} = {}) {
 	// Set up some headers to tell the fetch call
-	const headers = { 'Content-Type': 'application/json' }
+	const headers = {'Content-Type': 'application/json'}
 	// build out the fetch() call using the API_URL
 	// environment variable pulled in at the start
 	// Note the merging of the query and variables
 	const res = await fetch(API_URL, {
 		method: 'POST',
 		headers,
-		body: JSON.stringify({ query, variables }),
+		body: JSON.stringify({query, variables}),
 	})
 	// error handling work
 	const json = await res.json()
@@ -51,7 +50,7 @@ export async function getAllPosts(first = 4) {
      }
     }
    }
- `
+ `,
 	)
 	return data
 }
@@ -68,7 +67,7 @@ export async function getAllPostsWithSlug() {
         }
       }
     }
-  `
+  `,
 	)
 	return data?.posts
 }
@@ -99,14 +98,14 @@ export async function getPost(slug) {
 				id: slug,
 				idType: 'SLUG',
 			},
-		}
+		},
 	)
 
 	return data
 }
 
 export async function getAllSlides() {
-    const data = await fetchAPI(`
+	const data = await fetchAPI(`
     query AllSlides{
         slides(first: 1000, where: {orderby: {field: DATE, order: ASC}}) {
           edges {
@@ -127,10 +126,8 @@ export async function getAllSlides() {
         }
       }      
     `)
-    return data?.slides
+	return data?.slides
 }
-
-
 
 export const queryPostsClient = `
 query AllPosts($num: Int, $after: String) {

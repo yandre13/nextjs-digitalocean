@@ -1,6 +1,5 @@
-  
 module.exports = {
-    images: {
-      domains: ['back.test'],
-    },
-  }
+	images: {
+		domains: ['back.test'],
+	},
+}
