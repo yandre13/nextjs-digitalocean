@@ -1,0 +1,81 @@
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Gana con Rich's Landing page</title>
+		<link>http://localhost:3002</link>
+		<description>Gana con Rich's. Participa en un sorteo ingresando nuestro formulario</description>
+		<language>es</language>
+		<lastBuildDate>Fri, 01 Jan 2021 16:33:40 GMT</lastBuildDate>
+		<atom:link href="http://localhost:3002/rss.xml" rel="self" type="application/rss+xml"/>
+		<item>
+			<guid>http://localhost:3002/products/test-15</guid>	
+			<title>test 15</title>
+			<link>http://localhost:3002/products/test-15</link>		
+			<description>test 15 xd</description>
+			<pubDate>Fri, 01 Jan 2021 16:33:40 GMT</pubDate>
+		</item>
+		<item>
+			<guid>http://localhost:3002/products/test-14</guid>	
+			<title>test 14</title>
+			<link>http://localhost:3002/products/test-14</link>		
+			<description>test 14</description>
+			<pubDate>Wed, 30 Dec 2020 22:38:52 GMT</pubDate>
+		</item>
+		<item>
+			<guid>http://localhost:3002/products/test-13</guid>	
+			<title>test 13</title>
+			<link>http://localhost:3002/products/test-13</link>		
+			<description>test 13</description>
+			<pubDate>Tue, 15 Dec 2020 16:18:15 GMT</pubDate>
+		</item>
+		<item>
+			<guid>http://localhost:3002/products/test-12</guid>	
+			<title>test 12</title>
+			<link>http://localhost:3002/products/test-12</link>		
+			<description>test 12</description>
+			<pubDate>Mon, 14 Dec 2020 17:54:47 GMT</pubDate>
+		</item>
+		<item>
+			<guid>http://localhost:3002/products/test-11</guid>	
+			<title>test 11</title>
+			<link>http://localhost:3002/products/test-11</link>		
+			<description>test 11</description>
+			<pubDate>Mon, 14 Dec 2020 17:54:28 GMT</pubDate>
+		</item>
+		<item>
+			<guid>http://localhost:3002/products/test-10</guid>	
+			<title>test 10</title>
+			<link>http://localhost:3002/products/test-10</link>		
+			<description>test 10</description>
+			<pubDate>Mon, 14 Dec 2020 17:53:37 GMT</pubDate>
+		</item>
+		<item>
+			<guid>http://localhost:3002/products/test-9</guid>	
+			<title>test 9</title>
+			<link>http://localhost:3002/products/test-9</link>		
+			<description>test 9</description>
+			<pubDate>Mon, 14 Dec 2020 17:53:12 GMT</pubDate>
+		</item>
+		<item>
+			<guid>http://localhost:3002/products/testing-8</guid>	
+			<title>Testing 8</title>
+			<link>http://localhost:3002/products/testing-8</link>		
+			<description>Last one</description>
+			<pubDate>Thu, 10 Dec 2020 23:30:41 GMT</pubDate>
+		</item>
+		<item>
+			<guid>http://localhost:3002/products/testing-7</guid>	
+			<title>Testing 7</title>
+			<link>http://localhost:3002/products/testing-7</link>		
+			<description>Testing seven</description>
+			<pubDate>Thu, 10 Dec 2020 23:29:46 GMT</pubDate>
+		</item>
+		<item>
+			<guid>http://localhost:3002/products/testing-6</guid>	
+			<title>Testing 6</title>
+			<link>http://localhost:3002/products/testing-6</link>		
+			<description>Testing 6</description>
+			<pubDate>Thu, 10 Dec 2020 23:29:08 GMT</pubDate>
+		</item>
+	</channel>
+</rss>

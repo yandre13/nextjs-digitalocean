@@ -1,0 +1,62 @@
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>http://localhost:3002/</loc>
+		<changefreq>monthly</changefreq>
+	</url>
+	<url>
+		<loc>http://localhost:3002/products</loc>
+		<lastmod>Fri, 01 Jan 2021 16:33:40 GMT</lastmod>
+		<changefreq>weekly</changefreq>
+	</url>
+  <url>
+    <loc>http://localhost:3002/products/test-15</loc>
+    <lastmod>Fri, 01 Jan 2021 16:33:40 GMT</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3002/products/test-14</loc>
+    <lastmod>Wed, 30 Dec 2020 22:38:52 GMT</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3002/products/test-13</loc>
+    <lastmod>Tue, 15 Dec 2020 16:18:15 GMT</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3002/products/test-12</loc>
+    <lastmod>Mon, 14 Dec 2020 17:54:47 GMT</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3002/products/test-11</loc>
+    <lastmod>Mon, 14 Dec 2020 17:54:28 GMT</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3002/products/test-10</loc>
+    <lastmod>Mon, 14 Dec 2020 17:53:37 GMT</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3002/products/test-9</loc>
+    <lastmod>Mon, 14 Dec 2020 17:53:12 GMT</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3002/products/testing-8</loc>
+    <lastmod>Thu, 10 Dec 2020 23:30:41 GMT</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3002/products/testing-7</loc>
+    <lastmod>Thu, 10 Dec 2020 23:29:46 GMT</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>http://localhost:3002/products/testing-6</loc>
+    <lastmod>Thu, 10 Dec 2020 23:29:08 GMT</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+</urlset>
