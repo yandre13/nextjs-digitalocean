@@ -15,17 +15,11 @@ const Hero = ({}) => {
 					<img src="/images/logo.png" className="logo" alt="logo" />
 				</a>
 				<Navigation>
-					<li>
-						<a href="#">Home</a>
-					</li>
-					<li>
-						<a href="#">Menu</a>
-					</li>
-					<li>
+					<li className="d-none">
 						<a href="#">Whats new</a>
 					</li>
 					<li>
-						<a href="#">Contact</a>
+						<a href="#">CONTÁCTANOS</a>
 					</li>
 				</Navigation>
 			</Header>

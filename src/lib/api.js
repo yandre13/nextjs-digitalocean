@@ -26,30 +26,24 @@ export async function fetchAPI(query, {variables} = {}) {
 export async function getAllPosts(first = 4) {
 	const data = await fetchAPI(
 		`
-   query AllPosts {
-    posts(first: ${first}, where: { orderby: { field: DATE, order: ASC}}) {
-     edges {
-      cursor
-      node {
-       id
-       date
-       title
-       slug
-       featuredImage{
-        node{
-          sourceUrl
-        }
-      }
-       extraPostInfo {
-        authorExcerpt
-        thumbImage {
-         mediaItemUrl
-        }
-       } 
-      }
-     }
-    }
-   }
+		query AllPosts {
+			posts(first: ${first}, where: {orderby: {field: DATE, order: ASC}}) {
+				edges {
+					cursor
+					node {
+						id
+						date
+						title
+						slug
+						featuredImage {
+							node {
+								sourceUrl
+							}
+						}
+					}
+				}
+			}
+		}
  `,
 	)
 	return data
@@ -59,14 +53,14 @@ export async function getAllPostsWithSlug() {
 	const data = await fetchAPI(
 		`
     {
-      posts(first: 10000) {
-        edges {
-          node {
-            slug
-          }
-        }
-      }
-    }
+			posts(first: 10000) {
+				edges {
+					node {
+						slug
+					}
+				}
+			}
+		}
   `,
 	)
 	return data?.posts
@@ -75,23 +69,23 @@ export async function getAllPostsWithSlug() {
 export async function getPost(slug) {
 	const data = await fetchAPI(
 		`
-   fragment PostFields on Post {
-    title
-    excerpt
-    slug
-    date
-    featuredImage {
-     node {
-      sourceUrl
-     }
-    }
-   }
-   query PostBySlug($id: ID!, $idType: PostIdType!) {
-    post(id: $id, idType: $idType) {
-     ...PostFields
-     content
-    }
-   }
+		fragment PostFields on Post {
+			title
+			excerpt
+			slug
+			date
+			featuredImage {
+				node {
+					sourceUrl
+				}
+			}
+		}
+		query PostBySlug($id: ID!, $idType: PostIdType!) {
+			post(id: $id, idType: $idType) {
+				...PostFields
+				content
+			}
+		}		
   `,
 		{
 			variables: {
@@ -102,31 +96,6 @@ export async function getPost(slug) {
 	)
 
 	return data
-}
-
-export async function getAllSlides() {
-	const data = await fetchAPI(`
-    query AllSlides{
-        slides(first: 1000, where: {orderby: {field: DATE, order: ASC}}) {
-          edges {
-            node {
-              title
-              excerpt
-              featuredImage {
-                node {
-                  sourceUrl
-                }
-              }
-              buttonInfo {
-                title
-                link
-              }
-            }
-          }
-        }
-      }      
-    `)
-	return data?.slides
 }
 
 export const queryPostsClient = `

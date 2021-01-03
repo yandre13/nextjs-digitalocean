@@ -33,7 +33,7 @@ export const HeroContent = styled.div`
 		max-width: 600px;
 		width: 100%;
 		& h2 {
-			color: var(--text-color);
+			color: var(--text-color-hero);
 			font-size: 2rem;
 			line-height: 1.4em;
 			font-weight: bold;
@@ -53,7 +53,7 @@ export const HeroContent = styled.div`
 			font-weight: 900;
 		}
 		& p {
-			color: var(--text-color);
+			color: var(--text-color-hero);
 		}
 		& a {
 			display: inline-block;
@@ -100,8 +100,9 @@ export const Navigation = styled.ul`
 	}
 	& li a {
 		display: inline-block;
-		color: var(--text-color);
-		font-weight: 300;
+		color: var(--text-color-hero);
+		font-size: 1.2rem;
+		font-weight: 800;
 		margin-left: 40px;
 		text-decoration: none;
 	}
@@ -111,15 +112,22 @@ export const Navigation = styled.ul`
 `
 
 export const Circle = styled.div`
+	z-index: -1;
 	position: absolute;
-	top: 0;
+	top: -100px;
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: #017143;
-	clip-path: circle(74% at right 111%);
+	background-color: #bd1eae;
+	background-image: linear-gradient(
+		283deg,
+		#bd1eae 0%,
+		#cd3bbc 36%,
+		#ff6100 81%
+	);
+	clip-path: ellipse(160% 60% at 50% 40%);
 	@media screen and (min-width: 768px) {
-		clip-path: circle(68% at right 128%);
+		clip-path: ellipse(70% 60% at 50% 40%);
 	}
 `
 

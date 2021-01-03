@@ -9,11 +9,10 @@ import useSWR from 'swr'
 import {request} from 'graphql-request'
 import Hero from 'components/Hero'
 
-const BASE_URL = 'http://back.test/graphql'
-
 const getLastCursor = (arr = []) =>
 	arr.filter((e, i) => i === arr.length - 1 && e)[0]?.cursor
-const fetcher = vars => query => request(BASE_URL, query, vars)
+const fetcher = vars => query =>
+	request(process.env.NEXT_PUBLIC_WP_API_URL, query, vars)
 
 export default function Home({allPosts = []}) {
 	const lastCursor = getLastCursor(allPosts?.posts?.edges)
@@ -27,9 +26,8 @@ export default function Home({allPosts = []}) {
 	return (
 		<>
 			<Head>
-				<title>Landing Rich's Arg Example</title>
+				<title>Gana con Rich's</title>
 				<link rel="icon" href="/favicon.ico" />
-
 				<script
 					dangerouslySetInnerHTML={{
 						__html: `
@@ -39,12 +37,7 @@ export default function Home({allPosts = []}) {
 				></script>
 			</Head>
 			<Hero />
-			<main>
-				<h1 className="text-center py-4 display-4 font-weight-bold">
-					Landing Rich's Arg Example
-				</h1>
-				<div className="px-5">IMAGES</div>
-
+			<main className="container">
 				<div className="row">
 					<div className="col-md-6 offset-md-6">
 						<form id="mktoForm_1396"></form>
@@ -80,6 +73,7 @@ export default function Home({allPosts = []}) {
 }
 export async function getStaticProps() {
 	const allPosts = await getAllPosts(5)
+
 	return {
 		props: {
 			allPosts: allPosts,
